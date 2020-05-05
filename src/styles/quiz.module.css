@@ -1,0 +1,12 @@
+@import './colors.css';
+
+.container {
+  border-radius: 2px;
+  background: var(--purple_steel);
+  width: 62.5%;
+  height: 600px;
+
+  min-width: 600px;
+  display: flex;
+  margin: auto;
+}

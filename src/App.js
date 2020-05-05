@@ -1,11 +1,15 @@
-import styles from './styles/app.module.css'
+import styles from 'styles/app.module.css'
 
 import React from 'react'
 
-import F1Logo from './svgs/F1Logo'
+import QuizContainer from 'containers/quiz/QuizContainer'
 
 function App() {
-  return <main className={styles.app}></main>
+  return (
+    <main className={styles.app}>
+      <QuizContainer />
+    </main>
+  )
 }
 
 export default App
