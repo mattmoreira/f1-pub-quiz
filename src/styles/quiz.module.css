@@ -7,7 +7,22 @@
   width: 62.5%;
   height: 600px;
 
-  min-width: 600px;
+  min-width: 720px;
   display: flex;
   margin: auto;
+}
+
+.formula_logo {
+  width: 380px;
+  margin: 0 auto;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-default);
+  font-size: 98px;
+  font-weight: bold;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 50px 0 0;
 }
