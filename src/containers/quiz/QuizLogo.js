@@ -1,7 +1,7 @@
 import styles from 'styles/quiz.module.css'
 
-import React, { useRef } from 'react'
-import { useSpring, useChain, animated } from 'react-spring'
+import React from 'react'
+import { useSpring, animated } from 'react-spring'
 
 import F1Logo from 'svgs/F1Logo'
 
@@ -27,8 +27,6 @@ function useLogoAnimation() {
       await next({ color: '#2F2D3D' })
     }
   })
-
-  // useChain([logoAnimationRef, titleAnimationRef], [1, 1.5])
 
   return {
     logo: { style: logoStyle },
