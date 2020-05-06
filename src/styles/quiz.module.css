@@ -9,6 +9,7 @@
 
   min-width: 720px;
   display: flex;
+  flex-direction: column;
   margin: auto;
 }
 
@@ -26,9 +27,13 @@
 
 .title {
   font-family: var(--font-default);
-  font-size: 98px;
   font-weight: bold;
+  line-height: 1;
   color: var(--white);
   text-transform: uppercase;
   margin: 50px 0 0;
+}
+
+.quiz_team_step {
+  margin: 0 auto;
 }
