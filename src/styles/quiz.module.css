@@ -1,5 +1,4 @@
 @import './colors.css';
-@import './fonts.css';
 
 .container {
   border-radius: 2px;
@@ -26,7 +25,6 @@
 }
 
 .title {
-  font-family: var(--font-default);
   font-weight: bold;
   line-height: 1;
   color: var(--white);
