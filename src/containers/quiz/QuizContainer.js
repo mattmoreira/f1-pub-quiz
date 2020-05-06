@@ -6,6 +6,7 @@ import Color from 'color'
 import { useSpring, animated } from 'react-spring'
 
 import Input from 'components/input/Input'
+import Label from 'components/label/Label'
 
 import QuizLogo from './QuizLogo'
 
@@ -19,6 +20,8 @@ export default function QuizContainer() {
   return (
     <animated.section className={styles.container} style={containerStyle}>
       <QuizLogo />
+
+      <Label>What's your team name?</Label>
       <Input />
     </animated.section>
   )

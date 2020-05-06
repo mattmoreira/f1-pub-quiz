@@ -1,0 +1,10 @@
+@import './colors.css';
+@import './fonts.css';
+
+.label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: var(--font-default);
+  color: var(--white_alabaster);
+  margin-bottom: 12px;
+}
