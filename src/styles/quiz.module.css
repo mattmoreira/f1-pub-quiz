@@ -1,17 +1,5 @@
 @import './colors.css';
 
-.container {
-  border-radius: 2px;
-  background: var(--purple_steel);
-  width: 62.5%;
-  height: 600px;
-
-  min-width: 720px;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-}
-
 .quiz_logo {
   display: flex;
   flex-direction: column;
