@@ -5,7 +5,27 @@ import { useSpring, animated } from 'react-spring'
 
 import F1Logo from 'svgs/F1Logo'
 
-function useLogoAnimation() {
+function useLogoRested() {
+  const logoStyle = useSpring({
+    fill: '#2F2D3D',
+    width: '310px',
+    immediate: true
+  })
+
+  const titleStyle = useSpring({
+    color: '#2F2D3D',
+    marginTop: '22.5px',
+    fontSize: '80px',
+    immediate: true
+  })
+
+  return {
+    logo: { style: logoStyle },
+    title: { style: titleStyle }
+  }
+}
+
+function useLogoAnimation({ onAnimationEnd }) {
   const logoStyle = useSpring({
     from: { width: '950px' },
     to: async next => {
@@ -13,6 +33,7 @@ function useLogoAnimation() {
       await new Promise(resolve => setTimeout(resolve, 500))
       await next({ fill: '#2F2D3D', width: '310px' })
     },
+    onRest: onAnimationEnd,
     delay: 500
   })
 
@@ -38,12 +59,18 @@ function useLogoAnimation() {
   }
 }
 
-export default function QuizLogo() {
-  const { title: titleAnimation, logo: logoAnimation } = useLogoAnimation()
+export default function QuizLogo(props) {
+  const useLogo = props.immediate ? useLogoRested : useLogoAnimation
+
+  const { title: titleAnimation, logo: logoAnimation } = useLogo(props)
 
   return (
     <div className={styles.quiz_logo}>
-      <F1Logo className={styles.formula_logo} {...logoAnimation} />
+      <F1Logo
+        className={styles.formula_logo}
+        immediate={props.immediate}
+        {...logoAnimation}
+      />
 
       <animated.h1 className={styles.title} {...titleAnimation}>
         <span ref={titleAnimation.ref}>Pub Quiz</span>

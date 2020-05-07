@@ -6,9 +6,13 @@ import Input from 'components/input/Input'
 import Label from 'components/label/Label'
 import Button from 'components/button/Button'
 
-export default function QuizTeamStep(props) {
+import QuizLogo from './QuizLogo'
+
+function QuizTeamStep() {
   return (
     <Fragment>
+      <QuizLogo immediate />
+
       <Input.Group className={styles.quiz_team_step}>
         <Label>What's your team name?</Label>
         <Input />
@@ -18,3 +22,5 @@ export default function QuizTeamStep(props) {
     </Fragment>
   )
 }
+
+export default QuizTeamStep

@@ -4,7 +4,8 @@ import { useSpring } from 'react-spring'
 
 const F1Logo = React.forwardRef((props, ref) => {
   const fillAnimation = useSpring({
-    delay: 1900,
+    immediate: props.immediate,
+    delay: !props.immediate ? 1900 : 0,
     from: { fill: '#ff1e00' },
     to: { fill: '#2F2D3D' }
   })
