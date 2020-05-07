@@ -11,5 +11,6 @@
   --purple_charade: #2f2d3d;
   --purple_topaz: #747189;
 
-  --gray_cod: rgba(18, 18, 18, 40);
+  --gray_cod: rgba(18, 18, 18, 0.4);
+  --black_transparent: rgba(0, 0, 0, 0.2);
 }
