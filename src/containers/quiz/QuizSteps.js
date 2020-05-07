@@ -6,8 +6,8 @@ import QuizStartStep from './QuizStartStep'
 
 const QuizSteps = () => (
   <>
+    <Route path="/team" component={QuizTeamStep} />
     <Route exact path="/" component={QuizStartStep} />
-    <Route exact path="team" component={QuizTeamStep} />
   </>
 )
 

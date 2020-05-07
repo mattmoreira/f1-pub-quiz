@@ -6,7 +6,7 @@ import QuizSteps from 'containers/quiz/QuizSteps'
 const Routes = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={QuizSteps} />
+      <Route path="/" component={QuizSteps} />
     </Switch>
   </Router>
 )
