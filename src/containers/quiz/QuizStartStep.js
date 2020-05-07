@@ -1,8 +1,7 @@
 import React from 'react'
 
 import QuizLogo from './QuizLogo'
-import QuizTeamStep from './QuizTeamStep'
 
-export default function QuizContainer() {
+export default function QuizStartStep() {
   return <QuizLogo />
 }

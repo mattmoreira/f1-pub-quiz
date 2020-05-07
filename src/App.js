@@ -3,8 +3,7 @@ import styles from 'styles/app.module.css'
 import Color from 'color'
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
-
-import QuizContainer from 'containers/quiz/QuizContainer'
+import Routes from 'config/Routes'
 
 function App() {
   const containerStyle = useSpring({
@@ -16,7 +15,7 @@ function App() {
   return (
     <main className={styles.app}>
       <animated.section className={styles.container} style={containerStyle}>
-        <QuizContainer />
+        <Routes />
       </animated.section>
     </main>
   )
