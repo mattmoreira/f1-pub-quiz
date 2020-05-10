@@ -1,4 +1,4 @@
-import styles from 'styles/quiz.module.css'
+import styles from './quiz_logo.module.css'
 
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
@@ -65,7 +65,7 @@ export default function QuizLogo(props) {
   const { title: titleAnimation, logo: logoAnimation } = useLogo(props)
 
   return (
-    <div className={styles.quiz_logo}>
+    <div className={styles.container}>
       <F1Logo
         className={styles.formula_logo}
         immediate={props.immediate}

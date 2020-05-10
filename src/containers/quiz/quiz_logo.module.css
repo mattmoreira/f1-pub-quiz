@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+
+.formula_logo {
+  margin: 0 auto;
+  display: block;
+}
+
+.title {
+  font-weight: bold;
+  line-height: 1;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 50px 0 0;
+}

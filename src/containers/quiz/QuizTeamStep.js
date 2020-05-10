@@ -1,4 +1,4 @@
-import styles from 'styles/quiz.module.css'
+import styles from './quiz_team.module.css'
 
 import React from 'react'
 
@@ -13,7 +13,7 @@ function QuizTeamStep() {
     <>
       <QuizLogo immediate />
 
-      <Input.Group className={styles.quiz_team_step}>
+      <Input.Group className={styles.team_name}>
         <Label>What's your team name?</Label>
         <Input />
       </Input.Group>
