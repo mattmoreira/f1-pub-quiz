@@ -5,7 +5,7 @@ import React from 'react'
 import Input from 'components/input/Input'
 import Label from 'components/label/Label'
 
-function QuizTeamStep() {
+function QuizQuestionContainer() {
   return (
     <>
       <header className={styles.header}>
@@ -31,4 +31,4 @@ function QuizTeamStep() {
   )
 }
 
-export default QuizTeamStep
+export default QuizQuestionContainer

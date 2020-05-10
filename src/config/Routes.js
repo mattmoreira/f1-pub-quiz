@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import QuizSteps from 'containers/quiz/QuizSteps'
+import QuizRoutes from 'containers/quiz/QuizRoutes'
 
 const Routes = () => (
   <Router>
     <Switch>
-      <Route path="/" component={QuizSteps} />
+      <Route path="/" component={QuizRoutes} />
     </Switch>
   </Router>
 )

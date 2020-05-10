@@ -8,7 +8,7 @@ import Button from 'components/button/Button'
 
 import QuizLogo from './QuizLogo'
 
-function QuizTeamStep() {
+function QuizTeamContainer() {
   return (
     <>
       <QuizLogo immediate />
@@ -23,4 +23,4 @@ function QuizTeamStep() {
   )
 }
 
-export default QuizTeamStep
+export default QuizTeamContainer
