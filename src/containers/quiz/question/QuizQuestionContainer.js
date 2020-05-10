@@ -5,13 +5,12 @@ import React from 'react'
 import Input from 'components/input/Input'
 import Label from 'components/label/Label'
 
+import QuizHeader from '../shared/QuizHeader'
+
 function QuizQuestionContainer() {
   return (
     <>
-      <header className={styles.header}>
-        <span className={styles.number}>1</span>
-        <h1 className={styles.title}>Who was this driver's team mate?</h1>
-      </header>
+      <QuizHeader number={1} title="Who was this driver's team mate?" />
 
       <div className={styles.flexible_image}>
         <img

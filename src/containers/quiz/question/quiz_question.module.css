@@ -14,35 +14,6 @@
   width: 100%;
 }
 
-.header {
-  position: absolute;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  background: blue;
-}
-
-.number {
-  display: inline-block;
-  background: var(--white);
-  color: var(--black);
-  font-size: 28px;
-  font-weight: bold;
-  margin-right: 20px;
-  padding: 9px 18px;
-  border-radius: 2px 2px 16px 2px;
-}
-
-.title {
-  text-transform: uppercase;
-  color: var(--white);
-  margin: 0;
-}
-
 .form {
   position: absolute;
   bottom: 0;

@@ -1,0 +1,10 @@
+.number {
+  display: inline-block;
+  background: var(--white);
+  color: var(--black);
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 20px;
+  padding: 9px 18px;
+  border-radius: 2px 2px 16px 2px;
+}

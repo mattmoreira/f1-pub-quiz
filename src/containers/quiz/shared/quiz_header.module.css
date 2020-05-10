@@ -1,0 +1,17 @@
+.header {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: blue;
+}
+
+.title {
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0;
+}
