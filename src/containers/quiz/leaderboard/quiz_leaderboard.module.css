@@ -16,6 +16,7 @@
   max-height: 240px;
   overflow: auto;
   counter-reset: counter;
+  margin: 0;
 }
 
 .list_item {
@@ -36,6 +37,10 @@
 
 .list_item:nth-child(even) {
   padding: 0;
+}
+
+.list_item:nth-last-child(-n + 2) {
+  margin: 0;
 }
 
 .list_item:before {
