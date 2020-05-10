@@ -9,6 +9,7 @@
 
   color: var(--purple_cinder);
   font-size: 16px;
+  text-align: center;
 }
 
 .input_group {
