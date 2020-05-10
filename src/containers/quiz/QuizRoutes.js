@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router'
 
-import QuizTeamContainer from './QuizTeamContainer'
+import QuizTeamContainer from './team/QuizTeamContainer'
+import QuizQuestionContainer from './question/QuizQuestionContainer'
 import QuizStartContainer from './QuizStartContainer'
-import QuizQuestionContainer from './QuizQuestionContainer'
 
 const QuizRoutes = () => (
   <>

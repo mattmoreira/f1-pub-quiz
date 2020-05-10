@@ -6,7 +6,7 @@ import Input from 'components/input/Input'
 import Label from 'components/label/Label'
 import Button from 'components/button/Button'
 
-import QuizLogo from './QuizLogo'
+import QuizLogo from '../QuizLogo'
 
 function QuizTeamContainer() {
   return (
