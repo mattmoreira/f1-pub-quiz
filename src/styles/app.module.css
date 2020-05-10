@@ -30,13 +30,15 @@ code {
 }
 
 .container {
-  border-radius: 2px;
-  background: var(--purple_steel);
-  width: 62.5%;
-  height: 600px;
-
-  min-width: 720px;
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: auto;
+
+  width: 62.5%;
+  min-width: 720px;
+  max-height: 600px;
+
+  background: var(--purple_steel);
+  border-radius: 2px;
 }

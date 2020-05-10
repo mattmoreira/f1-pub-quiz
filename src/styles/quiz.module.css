@@ -23,3 +23,53 @@
 .quiz_team_step {
   margin: 0 auto;
 }
+
+.quiz_question_flexible_image {
+  height: 0;
+  padding-bottom: 62.5%;
+  position: relative;
+}
+
+.quiz_question_image {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.quiz_question_header {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: blue;
+}
+
+.quiz_question_number {
+  display: inline-block;
+  background: var(--white);
+  color: var(--black);
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 20px;
+  padding: 9px 18px;
+  border-radius: 2px 2px 16px 2px;
+}
+
+.quiz_question_title {
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0;
+}
+
+.quiz_question_form {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
