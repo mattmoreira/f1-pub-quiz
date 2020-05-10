@@ -1,0 +1,55 @@
+.container {
+  padding: 40px;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  font-size: 36px;
+  margin: 0 0 72px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  counter-reset: counter;
+}
+
+.list_item {
+  width: 50%;
+  margin-bottom: 56px;
+  padding-right: 40px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+
+  font-size: 22px;
+
+  counter-increment: counter;
+  composes: number_pseudo from '../shared/quiz_number.module.css';
+}
+
+.list_item:nth-child(even) {
+  padding: 0;
+}
+
+.list_item:before {
+  content: counter(counter);
+
+  font-size: 22px;
+  padding: 6px 11px;
+  border-radius: 2px;
+}
+
+.list_item_team_name {
+  margin: 0;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.list_item_points {
+  margin: 0;
+}
