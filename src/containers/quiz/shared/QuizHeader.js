@@ -7,8 +7,8 @@ import React from 'react'
 export default function QuizHeader({ title, number }) {
   return (
     <header className={styles.header}>
-      <QuizNumber>{number}</QuizNumber>
-      <h1 className={styles.title}>{title}</h1>
+      {number && <QuizNumber>{number}</QuizNumber>}
+      {title && <h1 className={styles.title}>{title}</h1>}
     </header>
   )
 }
