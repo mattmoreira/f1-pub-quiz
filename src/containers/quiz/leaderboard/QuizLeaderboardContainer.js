@@ -1,5 +1,7 @@
 import styles from './quiz_leaderboard.module.css'
 
+import QuizHeader from '../shared/QuizHeader'
+
 import React from 'react'
 
 function QuizLeaderboardItem({ teamName, points }) {
@@ -16,6 +18,7 @@ function QuizLeaderboardItem({ teamName, points }) {
 export default function QuizLeaderboardContainer(props) {
   return (
     <div className={styles.container}>
+      <QuizHeader />
       <h2 className={styles.subtitle}>Leaderboard</h2>
       <ol className={styles.list}>
         <QuizLeaderboardItem teamName="Scuderia Ferrari" points={3} />
