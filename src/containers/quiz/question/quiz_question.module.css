@@ -1,11 +1,5 @@
 @import '../../../styles/colors.css';
 
-.flexible_image {
-  height: 0;
-  padding-bottom: 62.5%;
-  position: relative;
-}
-
 .image {
   object-fit: cover;
   object-position: center;
