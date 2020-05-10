@@ -8,6 +8,11 @@ body {
 }
 
 body,
+button {
+  color: var(--white);
+}
+
+body,
 button,
 input {
   font-family: 'Formula One', -apple-system, BlinkMacSystemFont, 'Segoe UI',
