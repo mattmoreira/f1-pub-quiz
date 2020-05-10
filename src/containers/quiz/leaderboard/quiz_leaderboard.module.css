@@ -26,7 +26,7 @@
   box-sizing: border-box;
 
   display: flex;
-  align-items: baseline;
+  align-items: end;
   flex-shrink: 0;
 
   font-size: 22px;
