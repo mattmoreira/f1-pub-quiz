@@ -7,10 +7,11 @@ import Label from 'components/label/Label'
 import Button from 'components/button/Button'
 
 import QuizLogo from '../shared/QuizLogo'
+import QuizContainer from '../shared/QuizContainer'
 
 function QuizTeamContainer() {
   return (
-    <>
+    <QuizContainer>
       <QuizLogo immediate />
 
       <Input.Group className={styles.team_name}>
@@ -19,7 +20,7 @@ function QuizTeamContainer() {
       </Input.Group>
 
       <Button center>I'm ready</Button>
-    </>
+    </QuizContainer>
   )
 }
 
