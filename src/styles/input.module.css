@@ -19,3 +19,7 @@
   width: 436px;
   margin-bottom: 12px;
 }
+
+.input_group:last-child {
+  margin: 0;
+}

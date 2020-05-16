@@ -1,5 +1,11 @@
 @import '../../../styles/colors.css';
 
-.team_name {
+.name {
   margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 110px;
 }

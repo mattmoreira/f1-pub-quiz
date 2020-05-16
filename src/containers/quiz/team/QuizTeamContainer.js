@@ -14,12 +14,14 @@ function QuizTeamContainer() {
     <QuizContainer>
       <QuizLogo immediate />
 
-      <Input.Group className={styles.team_name}>
-        <Label>What's your team name?</Label>
-        <Input />
-      </Input.Group>
+      <form className={styles.form}>
+        <Input.Group className={styles.name}>
+          <Label>What's your team name?</Label>
+          <Input />
+        </Input.Group>
 
-      <Button center>I'm ready</Button>
+        <Button center>I'm ready</Button>
+      </form>
     </QuizContainer>
   )
 }

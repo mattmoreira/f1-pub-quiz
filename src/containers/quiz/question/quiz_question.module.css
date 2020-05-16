@@ -10,7 +10,7 @@
 
 .form {
   position: absolute;
-  bottom: 0;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
 }
