@@ -1,7 +1,7 @@
 @import '../../../styles/colors.css';
 
 .header {
-  position: absolute;
+  position: relative;
   bottom: 100%;
   left: 0;
   z-index: 10;
