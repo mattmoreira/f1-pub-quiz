@@ -1,4 +1,4 @@
-import styles from './quiz_team.module.css'
+import styles from './quiz_team_initial.module.css'
 
 import React from 'react'
 
