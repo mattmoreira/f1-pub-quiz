@@ -1,0 +1,22 @@
+.container {
+  margin: 0 auto 48px auto;
+
+  text-align: center;
+  line-height: 1.5;
+
+  max-height: 768px;
+}
+
+.creator,
+.copyright {
+  font-size: 12px;
+  display: block;
+}
+
+.creator {
+  color: var(--purple_topaz);
+}
+
+.copyright {
+  color: var(--purple_martinique);
+}
