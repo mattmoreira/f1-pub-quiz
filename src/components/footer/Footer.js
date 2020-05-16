@@ -6,7 +6,14 @@ export default function Footer() {
   return (
     <footer className={styles.container}>
       <span className={styles.creator}>
-        This challenge is a creation of <b>@mattmoreira</b>
+        This challenge is a creation of{' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.creator_profile}
+          href="http://github.com/mattmoreira">
+          @mattmoreira
+        </a>
       </span>
 
       <span className={styles.copyright}>

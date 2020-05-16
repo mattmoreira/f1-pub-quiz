@@ -17,6 +17,11 @@
   color: var(--purple_topaz);
 }
 
+.creator_profile {
+  font-weight: bold;
+  color: var(--purple_topaz);
+}
+
 .copyright {
   color: var(--purple_martinique);
 }
