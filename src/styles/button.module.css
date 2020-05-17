@@ -13,4 +13,5 @@
   font-weight: bold;
   border-radius: 50px;
   box-shadow: 2px 2px 3px var(--black_transparent);
+  cursor: pointer;
 }
