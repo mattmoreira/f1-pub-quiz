@@ -16,7 +16,10 @@ function App() {
     immediate: !isRootPath,
     delay: isRootPath ? 1900 : 0,
     from: { background: Color('#242333').alpha(0).string() },
-    to: { background: '#242333' }
+    to: {
+      background: '#242333',
+      overflow: 'hidden'
+    }
   })
 
   return (
