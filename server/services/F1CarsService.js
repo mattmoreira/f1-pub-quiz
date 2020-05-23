@@ -18,6 +18,37 @@ const getCarsPerYear = year =>
     res.map(member => member.title)
   )
 
+const getCarInfo = async selectedCar => {
+  const summary = await getWikiSummary(selectedCar)
+
+  const { engineName, constructor, debut } = await getWikiInfobox({
+    pageName: summary.title,
+    pageId: summary.pageid
+  }).then(res => res.general)
+
+  const engineManufacturer = !Array.isArray(engineName)
+    ? engineName
+    : engineName.join(' - ')
+
+  const { teamShortName, model } = carModelRegex.exec(summary.title).groups
+
+  const image = summary.originalimage || {}
+
+  const team = {
+    fullName: constructor,
+    shortName: teamShortName
+  }
+
+  return {
+    image: image.source,
+    model: model,
+    description: summary.extract,
+    engineManufacturer,
+    debut,
+    team
+  }
+}
+
 const getRandomCar = async () => {
   try {
     const currentYear = new Date().getFullYear()
@@ -26,36 +57,13 @@ const getRandomCar = async () => {
     const cars = await getCarsPerYear(randomYear)
     const randomCarIndex = getRandomNumber(0, cars.length)
 
-    const selectedCar = cars[randomCarIndex]
-    const summary = await getWikiSummary(selectedCar)
-
-    const { engineName, constructor, debut } = await getWikiInfobox({
-      pageName: summary.title,
-      pageId: summary.pageid
-    }).then(res => res.general)
-
-    const engineManufacturer = !Array.isArray(engineName)
-      ? engineName
-      : engineName.join(' - ')
-
-    const { teamShortName, model } = carModelRegex.exec(summary.title).groups
-
-    const image = summary.originalimage || {}
-
-    const team = {
-      fullName: constructor,
-      shortName: teamShortName
-    }
+    const selectedCarModel = cars[randomCarIndex]
+    const carInfo = getCarInfo(selectedCarModel)
 
     return {
       id: uuidv4(),
-      image: image.source,
-      model: model,
-      description: summary.extract,
-      engineManufacturer,
       year: randomYear,
-      debut,
-      team
+      ...carInfo
     }
   } catch (e) {
     console.log(e)
