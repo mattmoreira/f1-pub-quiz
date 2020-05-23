@@ -1,5 +1,5 @@
-const router = require('./router');
+const router = require('./router')
 
-const { port } = require('./config');
+const { port } = require('./config')
 
-router.listen(port, () => console.info(`Server started on port ${port}`));
+router.listen(port, () => console.info(`Server started on port ${port}`))

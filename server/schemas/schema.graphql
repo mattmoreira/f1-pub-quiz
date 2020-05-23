@@ -1,28 +1,23 @@
 directive @auth on FIELD_DEFINITION
 
 type Query {
-  job(id: ID!): Job
-  jobs: [Job]
-
-  company(id: ID!): Company
+  randomCar: Car
 }
 
-type Mutation {
-  createJob(input: CreateJobInput): Job @auth
+type Team {
+  fullName: String
+  shortName: String
 }
 
-type Company {
+type Car {
   id: ID!
-  name: String
+  image: String
+  model: String
+  team: Team
+  engineManufacturer: String
   description: String
-  jobs: [Job]
-}
-
-type Job {
-  id: ID!
-  title: String
-  description: String
-  company: Company
+  debut: String
+  year: Int
 }
 
 input CreateJobInput {
