@@ -1,0 +1,21 @@
+.race_info {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 96px;
+}
+
+.race_countdown,
+.race_winner_name {
+  font-weight: bold;
+  font-size: 48px;
+}
+
+.race_countdown_description {
+  margin: 0;
+  font-size: 18px;
+}
+
+.race_winner {
+  margin: 0;
+  font-size: 36px;
+}

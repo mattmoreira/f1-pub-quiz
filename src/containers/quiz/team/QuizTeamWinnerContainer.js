@@ -6,15 +6,15 @@ import QuizLogo from '../shared/QuizLogo'
 import QuizContainer from '../shared/QuizContainer'
 
 function QuizTeamContainer() {
+  const team = 'Scuderia Toro Rosso'
+
   return (
     <QuizContainer>
       <QuizLogo immediate />
 
       <div className={styles.race_info}>
-        <p className={styles.race_countdown_description}>
-          The next race starts in
-        </p>
-        <span className={styles.race_countdown}>00:00:20</span>
+        <p className={styles.race_countdown_description}>The winner is</p>
+        <span className={styles.race_countdown}>{team}</span>
       </div>
     </QuizContainer>
   )
