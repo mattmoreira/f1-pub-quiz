@@ -4,8 +4,11 @@ import Color from 'color'
 import React from 'react'
 
 import { useSpring, animated } from 'react-spring'
+import { ApolloProvider } from '@apollo/react-hooks'
 
 import Routes from 'config/Routes'
+
+import ApolloClient from './requests/ApolloClient'
 
 import Footer from './components/footer/Footer'
 
@@ -23,13 +26,15 @@ function App() {
   })
 
   return (
-    <main className={styles.app}>
-      <animated.section className={styles.container} style={containerStyle}>
-        <Routes />
-      </animated.section>
+    <ApolloProvider client={ApolloClient}>
+      <main className={styles.app}>
+        <animated.section className={styles.container} style={containerStyle}>
+          <Routes />
+        </animated.section>
 
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </ApolloProvider>
   )
 }
 
