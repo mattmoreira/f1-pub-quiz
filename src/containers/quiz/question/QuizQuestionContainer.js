@@ -1,21 +1,26 @@
 import styles from './quiz_question.module.css'
 
 import React from 'react'
+import { useQuery } from '@apollo/react-hooks'
 
 import Input from 'components/input/Input'
 import Label from 'components/label/Label'
 import ResponsiveImage from 'components/responsiveImage/ResponsiveImage'
 
+import { GET_RANDOM_CAR } from 'queries/QuizQuestionQueries'
+
 import QuizHeader from '../shared/QuizHeader'
 
 function QuizQuestionContainer() {
+  const { data: { randomCar = {} } = {} } = useQuery(GET_RANDOM_CAR)
+
   return (
     <>
-      <QuizHeader number={1} title="Who was this driver's team mate?" />
+      <QuizHeader number={1} title="Can you guess the car model?" />
 
       <ResponsiveImage
         className={styles.image}
-        src="https://www.formula1.com/content/dam/fom-website/sutton/2018/Abu%20Dhabi%20Test/Day%20Two/dcd1828no673.jpg.transform/9col-retina/image.jpg"
+        src={randomCar.image}
         alt="F1 car"
       />
 
