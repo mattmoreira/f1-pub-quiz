@@ -2,13 +2,10 @@ const slugify = require('slugify')
 const fetch = require('node-fetch')
 const parseInfobox = require('infobox-parser')
 
+const { formatParams } = require('../utils/request')
+
 const MEDIA_WIKI_API = 'https://en.wikipedia.org/w/api.php'
 const WIKI_REST_API = 'https://en.wikipedia.org/api/rest_v1'
-
-const formatParams = params =>
-  Object.keys(params)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-    .join('&')
 
 const queryWiki = async params => {
   const formattedParams = formatParams(params)

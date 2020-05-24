@@ -4,6 +4,8 @@ const {
   getWikiSummary
 } = require('../repositories/WikipediaRepository')
 
+const { queryRedditImage } = require('../repositories/RedditRepository')
+
 const { v4: uuidv4 } = require('uuid')
 
 const carModelRegex = new RegExp(
@@ -32,7 +34,9 @@ const getCarInfo = async selectedCar => {
 
   const { teamShortName, model } = carModelRegex.exec(summary.title).groups
 
-  const image = summary.originalimage || {}
+  const image = summary.originalimage
+    ? summary.originalimage.source
+    : queryRedditImage({ query: selectedCar })
 
   const team = {
     fullName: constructor,
@@ -40,7 +44,7 @@ const getCarInfo = async selectedCar => {
   }
 
   return {
-    image: image.source,
+    image,
     model: model,
     description: summary.extract,
     engineManufacturer,
@@ -58,7 +62,7 @@ const getRandomCar = async () => {
     const randomCarIndex = getRandomNumber(0, cars.length)
 
     const selectedCarModel = cars[randomCarIndex]
-    const carInfo = getCarInfo(selectedCarModel)
+    const carInfo = await getCarInfo(selectedCarModel)
 
     return {
       id: uuidv4(),
