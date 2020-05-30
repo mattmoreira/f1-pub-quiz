@@ -4,7 +4,12 @@ type Query {
   randomCar: Car
 }
 
+type Mutation {
+  registerTeam(input: RegisterTeamInput): Team
+}
+
 type Team {
+  id: ID!
   fullName: String
   shortName: String
 }
@@ -20,7 +25,6 @@ type Car {
   year: Int
 }
 
-input CreateJobInput {
-  title: String
-  description: String
+input RegisterTeamInput {
+  name: String!
 }
