@@ -1,5 +1,7 @@
 const assert = require('assert')
 
+const PubSub = require('../pubsub')
+
 const {
   createQuestion,
   addQuestionAnswer,
@@ -7,6 +9,8 @@ const {
 } = require('../repositories/QuestionRepository')
 
 const { getRandomCar } = require('./F1CarsService')
+
+const QUESTION_RECEIVED = 'questionReceived'
 
 const QUESTION_ANSWER_GENERATOR = {
   CAR_MODEL: getRandomCar
@@ -29,11 +33,15 @@ const makeQuestion = async type => {
   const expectedAnswer = await getQuestionAnswer()
   const createdQuestion = createQuestion({ type, expectedAnswer })
 
-  return {
+  const formattedQuestion = {
     id: createdQuestion.id,
     type: createdQuestion.type,
     image: createdQuestion.expectedAnswer.image
   }
+
+  PubSub.publish(QUESTION_RECEIVED, formattedQuestion)
+
+  return formattedQuestion
 }
 
 const answerQuestion = (questionId, params) =>
@@ -42,5 +50,6 @@ const answerQuestion = (questionId, params) =>
 module.exports = {
   makeQuestion,
   answerQuestion,
-  getQuestions
+  getQuestions,
+  QUESTION_RECEIVED
 }

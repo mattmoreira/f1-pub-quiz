@@ -1,13 +1,13 @@
-const { PubSub } = require('graphql-subscriptions')
-
 const {
   answerQuestion,
   getQuestions,
-  makeQuestion
+  makeQuestion,
+  QUESTION_RECEIVED
 } = require('./services/QuestionService')
+
 const { registerTeam } = require('./services/TeamService')
 
-const pubSub = new PubSub()
+const PubSub = require('./pubsub')
 
 const Mutation = {
   registerTeam: (root, { input }) => registerTeam(input.name),
@@ -20,8 +20,7 @@ const Mutation = {
 
 const Subscription = {
   questionReceived: {
-    // subscribe: () => pubSub.asyncIterator(SUBSCRIPTIONS.messageAdded)
-    subscribe: () => {}
+    subscribe: () => PubSub.asyncIterator(QUESTION_RECEIVED)
   }
 }
 
