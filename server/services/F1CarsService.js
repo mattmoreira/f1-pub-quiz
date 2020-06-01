@@ -6,8 +6,6 @@ const {
 
 const { queryRedditImage } = require('../repositories/RedditRepository')
 
-const { v4: uuidv4 } = require('uuid')
-
 const carModelRegex = new RegExp(
   /(?<teamShortName>[\w\s-]+)\s(?<model>[\w-]+)$/
 )
@@ -65,7 +63,6 @@ const getRandomCar = async () => {
     const carInfo = await getCarInfo(selectedCarModel)
 
     return {
-      id: uuidv4(),
       year: randomYear,
       ...carInfo
     }

@@ -1,11 +1,53 @@
 directive @auth on FIELD_DEFINITION
 
-type Query {
-  randomCar: Car
+input MakeQuestionInput {
+  type: QuestionType
+}
+
+input RegisterTeamInput {
+  name: String!
+}
+
+input AnswerQuestionInput {
+  questionId: ID!
+  answer: String!
 }
 
 type Mutation {
   registerTeam(input: RegisterTeamInput): Team
+  answerQuestion(input: AnswerQuestionInput): AnswerQuestionResponse
+  makeQuestion(input: MakeQuestionInput): Question
+}
+
+type Query {
+  questions(questionId: ID): [Question]
+}
+
+type Subscription {
+  questionReceived: Question
+}
+
+enum QuestionType {
+  CAR_MODEL
+}
+
+type Question {
+  id: ID!
+  type: QuestionType
+  image: String
+  answers: [Answer]
+}
+
+type Answer {
+  author: Team
+  answer: String
+  isCorrect: Boolean
+  expectedAnswer: String
+}
+
+type AnswerQuestionResponse {
+  originalQuestion: Question
+  answer: Answer
 }
 
 type Team {
@@ -23,8 +65,4 @@ type Car {
   description: String
   debut: String
   year: Int
-}
-
-input RegisterTeamInput {
-  name: String!
 }

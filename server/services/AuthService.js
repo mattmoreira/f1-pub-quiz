@@ -1,23 +1,21 @@
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 
-const db = require('../db');
+const db = require('../db')
 
-const { jwtSecret } = require('../config');
+const { findTeam, createTeam } = require('./TeamService')
 
-const { UnauthorizedError } = require('../errors/auth');
+const { jwtSecret } = require('../config')
 
-const authenticate = ({ email, password }) => {
-  const { password: userPassword, ...user } = db
-    .users
-    .list()
-    .find(user => user.email === email) || {};
+const findSession = team =>
+  db.sessions.list().find(session => session.teamId === team.id)
 
-  if (userPassword !== password) {
-    throw new UnauthorizedError();
-  }
-  
-  return jwt.sign(user, jwtSecret);
-};
+const createSession = team => db.sessions.create({ teamId: team.id })
 
+const authenticate = ({ teamName }) => {
+  const team = findTeam(teamName) || createTeam(teamName)
+  const session = findSession(team) || createSession(team)
+
+  return jwt.sign(session, jwtSecret)
+}
 
 module.exports = { authenticate }

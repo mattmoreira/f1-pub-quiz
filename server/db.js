@@ -4,5 +4,6 @@ const store = new DataStore('./data')
 
 module.exports = {
   teams: store.collection('teams'),
-  sessions: store.collection('sessions')
+  sessions: store.collection('sessions'),
+  questions: store.collection('questions')
 }
