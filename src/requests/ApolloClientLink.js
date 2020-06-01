@@ -1,13 +1,20 @@
-import { HttpLink, ApolloLink } from 'apollo-boost'
-import { onError } from 'apollo-link-error'
+import {
+  ApolloClient,
+  ApolloLink,
+  HttpLink,
+  InMemoryCache,
+  split
+} from 'apollo-boost'
 
-import { GRAPHQL_SERVER_URL } from '../config/endpoint'
+import { onError } from 'apollo-link-error'
+import { WebSocketLink } from 'apollo-link-ws'
+import { SubscriptionClient } from 'subscriptions-transport-ws'
+
+import { getMainDefinition } from 'apollo-utilities'
+
+import { GRAPHQL_HTTP_URL, GRAPHQL_WEBSOCKET_URL } from '../config/endpoint'
 
 import GraphQLError from '../errors/GraphQLError'
-
-const httpLink = new HttpLink({
-  uri: GRAPHQL_SERVER_URL
-})
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
@@ -19,4 +26,30 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   }
 })
 
-export default ApolloLink.from([errorLink, httpLink])
+const httpLink = ApolloLink.from([
+  errorLink,
+  new HttpLink({
+    uri: GRAPHQL_HTTP_URL
+  })
+])
+
+const clientSub = new SubscriptionClient(GRAPHQL_WEBSOCKET_URL, {
+  lazy: true,
+  reconnect: true,
+  connectionParams: () => ({})
+})
+
+const webSocketLink = new WebSocketLink(clientSub)
+
+const isSubscriptionOperation = operationDefinition => {
+  const { operation: operationType, kind } = getMainDefinition(
+    operationDefinition.query
+  )
+
+  return operationType === 'subscription' && kind === 'OperationDefinition'
+}
+
+export default new ApolloClient({
+  cache: new InMemoryCache(),
+  link: split(isSubscriptionOperation, webSocketLink, httpLink)
+})
