@@ -1,13 +1,17 @@
 import styles from './quiz_question.module.css'
 
 import React from 'react'
-import { useSubscription } from '@apollo/react-hooks'
+import { useSubscription, useMutation } from '@apollo/react-hooks'
+import { useForm } from 'react-hook-form'
 
 import Input from 'components/input/Input'
 import Label from 'components/label/Label'
 import ResponsiveImage from 'components/responsiveImage/ResponsiveImage'
 
-import { SUBSCRIPTION_ADDED_MESSAGE } from 'queries/QuizQuestionQueries'
+import {
+  SUBSCRIPTION_QUESTION_RECEIVED,
+  MUTATION_ANSWER_QUESTION
+} from 'queries/QuizQuestionQueries'
 
 import QuizHeader from '../shared/QuizHeader'
 
@@ -15,16 +19,49 @@ const TITLE = {
   CAR_MODEL: 'Can you guess the car model?'
 }
 
-function QuizQuestionContainer() {
+const useSubscriptionQuestion = () => {
   const { data: { questionReceived = {} } = {} } = useSubscription(
-    SUBSCRIPTION_ADDED_MESSAGE
+    SUBSCRIPTION_QUESTION_RECEIVED
   )
 
   const titleByType = TITLE[questionReceived.type]
 
+  return { ...questionReceived, title: titleByType }
+}
+
+const isQuestionAnswered = ({ answerQuestion } = {}, questionReceived) => {
+  if (!answerQuestion) {
+    return false
+  }
+
+  return answerQuestion.originalQuestion.id === questionReceived.id
+}
+
+function QuizQuestionContainer() {
+  const { register, handleSubmit } = useForm()
+  const questionReceived = useSubscriptionQuestion()
+
+  const [answerQuestion, responseMutationAnswer] = useMutation(
+    MUTATION_ANSWER_QUESTION
+  )
+
+  const submitAnswer = ({ answer }) => {
+    const input = {
+      questionId: questionReceived.id,
+      answer
+    }
+
+    answerQuestion({ variables: { input } })
+  }
+
+  const isSubmitDisabled = isQuestionAnswered(
+    responseMutationAnswer.data,
+    questionReceived
+  )
+
   return (
     <>
-      <QuizHeader number={1} title={titleByType} />
+      <QuizHeader number={1} title={questionReceived.title} />
 
       <ResponsiveImage
         className={styles.image}
@@ -32,10 +69,10 @@ function QuizQuestionContainer() {
         alt="F1 car"
       />
 
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit(submitAnswer)}>
         <Input.Group>
           <Label>Your Answer</Label>
-          <Input />
+          <Input disabled={isSubmitDisabled} name="answer" ref={register} />
         </Input.Group>
       </form>
     </>
