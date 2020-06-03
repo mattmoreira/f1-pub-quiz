@@ -10,6 +10,16 @@
   color: var(--purple_cinder);
   font-size: 16px;
   text-align: center;
+  border-bottom: 2px solid transparent;
+
+  transition: all 0.4s ease-in;
+  transition-property: color, background, border-bottom-color;
+}
+
+.input[disabled] {
+  color: var(--white);
+  background: var(--gray_graphitti);
+  border-bottom-color: var(--red_scarlet);
 }
 
 .input_group {
