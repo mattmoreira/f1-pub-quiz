@@ -25,7 +25,9 @@ const isAnswerCorrect = (answer, expectedAnswer) => {
   const fuzzySet = FuzzySet([answerName])
   const nameMatch = fuzzySet.get(team.shortName)
 
-  return answer.includes(expectedModel) && Boolean(nameMatch)
+  const regexExpectedModel = new RegExp(expectedModel, 'i')
+
+  return regexExpectedModel.test(answer) && Boolean(nameMatch)
 }
 
 const addQuestionAnswer = (questionId, params) => {
