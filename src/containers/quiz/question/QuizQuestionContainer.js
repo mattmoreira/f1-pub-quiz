@@ -1,26 +1,34 @@
 import styles from './quiz_question.module.css'
 
 import React from 'react'
-import { useQuery } from '@apollo/react-hooks'
+import { useSubscription } from '@apollo/react-hooks'
 
 import Input from 'components/input/Input'
 import Label from 'components/label/Label'
 import ResponsiveImage from 'components/responsiveImage/ResponsiveImage'
 
-import { GET_RANDOM_CAR } from 'queries/QuizQuestionQueries'
+import { SUBSCRIPTION_ADDED_MESSAGE } from 'queries/QuizQuestionQueries'
 
 import QuizHeader from '../shared/QuizHeader'
 
+const TITLE = {
+  CAR_MODEL: 'Can you guess the car model?'
+}
+
 function QuizQuestionContainer() {
-  const { data: { randomCar = {} } = {} } = useQuery(GET_RANDOM_CAR)
+  const { data: { questionReceived = {} } = {} } = useSubscription(
+    SUBSCRIPTION_ADDED_MESSAGE
+  )
+
+  const titleByType = TITLE[questionReceived.type]
 
   return (
     <>
-      <QuizHeader number={1} title="Can you guess the car model?" />
+      <QuizHeader number={1} title={titleByType} />
 
       <ResponsiveImage
         className={styles.image}
-        src={randomCar.image}
+        src={questionReceived.image}
         alt="F1 car"
       />
 

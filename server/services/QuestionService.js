@@ -39,7 +39,7 @@ const makeQuestion = async type => {
     image: createdQuestion.expectedAnswer.image
   }
 
-  PubSub.publish(QUESTION_RECEIVED, formattedQuestion)
+  PubSub.publish(QUESTION_RECEIVED, { [QUESTION_RECEIVED]: formattedQuestion })
 
   return formattedQuestion
 }

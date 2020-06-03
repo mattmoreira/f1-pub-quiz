@@ -36,8 +36,4 @@ const Query = {
   }
 }
 
-const Question = {
-  image: ({ expectedAnswer }) => expectedAnswer.image
-}
-
-module.exports = { Question, Query, Mutation, Subscription }
+module.exports = { Query, Mutation, Subscription }

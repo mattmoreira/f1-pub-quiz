@@ -8,7 +8,7 @@ import { ApolloProvider } from '@apollo/react-hooks'
 
 import Routes from 'config/Routes'
 
-import ApolloClient from './requests/ApolloClient'
+import ApolloClient from './requests/ApolloClientLink'
 
 import Footer from './components/footer/Footer'
 
