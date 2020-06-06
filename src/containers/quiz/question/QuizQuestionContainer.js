@@ -61,7 +61,7 @@ function QuizQuestionContainer() {
 
   return (
     <>
-      <QuizHeader number={1} title={questionReceived.title} />
+      <QuizHeader title={questionReceived.title} />
 
       <ResponsiveImage
         className={styles.image}

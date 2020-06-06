@@ -28,7 +28,7 @@
   font-size: 22px;
 
   counter-increment: counter;
-  composes: number_pseudo from '../shared/quiz_number.module.css';
+  composes: indicator_pseudo from '../shared/quiz_indicator.module.css';
 }
 
 .list_item:nth-child(even) {

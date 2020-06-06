@@ -1,13 +1,13 @@
 import styles from './quiz_header.module.css'
 
-import QuizNumber from './QuizNumber'
+import QuizIndicator from './QuizIndicator'
 
 import React from 'react'
 
-export default function QuizHeader({ title, number, progress }) {
+export default function QuizHeader({ title, progress }) {
   return (
     <header className={styles.header}>
-      {number && <QuizNumber>{number}</QuizNumber>}
+      <QuizIndicator>?</QuizIndicator>
       {title && <h1 className={styles.title}>{title}</h1>}
 
       {progress && (
