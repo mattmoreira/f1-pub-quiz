@@ -2,10 +2,10 @@ import styles from './responsive_image.module.css'
 
 import React from 'react'
 
-export default function ResponsiveImage(props) {
-  return (
-    <div className={styles.container}>
-      <img alt={props.alt} {...props} />
-    </div>
-  )
-}
+const ResponsiveImage = ({ alt, src, ...props }) => (
+  <div className={styles.container}>
+    {Boolean(src) && <img alt={alt} src={src} {...props} />}
+  </div>
+)
+
+export default ResponsiveImage

@@ -16,7 +16,8 @@ import {
 import QuizHeader from '../shared/QuizHeader'
 
 const TITLE = {
-  CAR_MODEL: 'Can you guess the car model?'
+  CAR_MODEL: 'Can you guess the car model?',
+  WAITING: 'Waiting for the next question...'
 }
 
 const useSubscriptionQuestion = () => {
@@ -24,7 +25,7 @@ const useSubscriptionQuestion = () => {
     SUBSCRIPTION_QUESTION_RECEIVED
   )
 
-  const titleByType = TITLE[questionReceived.type]
+  const titleByType = TITLE[questionReceived.type] || TITLE.WAITING
 
   return { ...questionReceived, title: titleByType }
 }
@@ -54,10 +55,9 @@ function QuizQuestionContainer() {
     answerQuestion({ variables: { input } })
   }
 
-  const isSubmitDisabled = isQuestionAnswered(
-    responseMutationAnswer.data,
-    questionReceived
-  )
+  const isSubmitDisabled =
+    !questionReceived.id ||
+    isQuestionAnswered(responseMutationAnswer.data, questionReceived)
 
   return (
     <>
