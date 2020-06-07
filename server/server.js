@@ -12,10 +12,17 @@ const typeDefs = gql(importSchema('schemas/schema.graphql'))
 
 const app = express()
 
+const appContext = ({ req }) => {
+  if (req && req.user) {
+    return { session: req.user.session, team: req.user.team }
+  }
+}
+
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   schemaDirectives,
+  context: appContext,
   formatError: ({ extensions: { exception } }) => ({
     stacktrace: exception.stacktrace,
     message: exception.name,

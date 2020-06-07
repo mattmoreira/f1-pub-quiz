@@ -1,10 +1,7 @@
 import { gql } from 'apollo-boost'
 
-export const REGISTER_TEAM = gql`
-  mutation RegisterTeam($input: RegisterTeamInput) {
-    registerTeam(input: $input) {
-      id
-      fullName
-    }
+export const AUTHENTICATE_TEAM = gql`
+  mutation AuthenticateTeam($input: AuthenticateTeamInput) {
+    authenticate(input: $input)
   }
 `

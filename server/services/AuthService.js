@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 const db = require('../db')
 
-const { findTeam, createTeam } = require('./TeamService')
+const { authenticateTeam } = require('./TeamService')
 
 const { jwtSecret } = require('../config')
 
@@ -11,11 +11,13 @@ const findSession = team =>
 
 const createSession = team => db.sessions.create({ teamId: team.id })
 
+const decodeSession = sessionToken => jwt.decode(sessionToken, jwtSecret)
+
 const authenticate = ({ teamName }) => {
-  const team = findTeam(teamName) || createTeam(teamName)
+  const team = authenticateTeam(teamName)
   const session = findSession(team) || createSession(team)
 
-  return jwt.sign(session, jwtSecret)
+  return jwt.sign({ session, team }, jwtSecret)
 }
 
-module.exports = { authenticate }
+module.exports = { authenticate, decodeSession }

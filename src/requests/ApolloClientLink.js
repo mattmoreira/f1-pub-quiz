@@ -14,7 +14,21 @@ import { getMainDefinition } from 'apollo-utilities'
 
 import { GRAPHQL_HTTP_URL, GRAPHQL_WEBSOCKET_URL } from '../config/endpoint'
 
+import { getToken, isLoggedIn } from '../services/AuthService'
+
 import GraphQLError from '../errors/GraphQLError'
+
+const authLink = new ApolloLink((operation, forward) => {
+  if (isLoggedIn()) {
+    const Authorization = `Bearer ${getToken()}`
+
+    operation.setContext({
+      headers: { Authorization }
+    })
+  }
+
+  return forward(operation)
+})
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
@@ -28,6 +42,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const httpLink = ApolloLink.from([
   errorLink,
+  authLink,
   new HttpLink({
     uri: GRAPHQL_HTTP_URL
   })
@@ -36,7 +51,7 @@ const httpLink = ApolloLink.from([
 const clientSub = new SubscriptionClient(GRAPHQL_WEBSOCKET_URL, {
   lazy: true,
   reconnect: true,
-  connectionParams: () => ({})
+  connectionParams: () => ({ sessionToken: getToken() })
 })
 
 const webSocketLink = new WebSocketLink(clientSub)

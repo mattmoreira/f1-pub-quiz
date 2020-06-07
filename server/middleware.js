@@ -1,9 +1,9 @@
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
-const expressJwt = require('express-jwt');
+const expressJwt = require('express-jwt')
 
-const { jwtSecret } = require('./config');
+const { jwtSecret } = require('./config')
 
 module.exports = {
   cors: cors(),

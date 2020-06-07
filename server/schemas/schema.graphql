@@ -4,7 +4,7 @@ input MakeQuestionInput {
   type: QuestionType
 }
 
-input RegisterTeamInput {
+input AuthenticateTeamInput {
   name: String!
 }
 
@@ -14,8 +14,8 @@ input AnswerQuestionInput {
 }
 
 type Mutation {
-  registerTeam(input: RegisterTeamInput): Team
-  answerQuestion(input: AnswerQuestionInput): AnswerQuestionResponse
+  authenticate(input: AuthenticateTeamInput): ID
+  answerQuestion(input: AnswerQuestionInput): AnswerQuestionResponse @auth
   makeQuestion(input: MakeQuestionInput): Question
 }
 

@@ -5,16 +5,18 @@ const {
   QUESTION_RECEIVED
 } = require('./services/QuestionService')
 
-const { registerTeam } = require('./services/TeamService')
+const { authenticate } = require('./services/AuthService')
 
 const PubSub = require('./pubsub')
 
 const Mutation = {
-  registerTeam: (root, { input }) => registerTeam(input.name),
-  answerQuestion: (root, { input }) =>
-    answerQuestion(input.questionId, {
-      answer: input.answer
-    }),
+  authenticate: (root, { input }) => authenticate({ teamName: input.name }),
+  answerQuestion: (root, { input }, { team }) => {
+    return answerQuestion(input.questionId, {
+      answer: input.answer,
+      author: team.id
+    })
+  },
   makeQuestion: (root, { input }) => makeQuestion(input.type)
 }
 

@@ -2,7 +2,7 @@ const assert = require('assert')
 
 const { createTeam, getTeam } = require('../repositories/TeamRepository')
 
-const registerTeam = teamName => {
+const authenticateTeam = teamName => {
   assert.notEqual(teamName, null, "Team name can't be null")
 
   const team = getTeam({ fullName: teamName })
@@ -15,4 +15,4 @@ const registerTeam = teamName => {
   return team
 }
 
-module.exports = { registerTeam }
+module.exports = { authenticateTeam }
