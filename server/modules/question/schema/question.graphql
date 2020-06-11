@@ -27,7 +27,7 @@ type Subscription {
 type Question {
   id: ID!
   type: QuestionType
-  image: String
+  image: Image
   answers: [Answer]
 }
 

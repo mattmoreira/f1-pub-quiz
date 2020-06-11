@@ -1,0 +1,9 @@
+enum ImageProvider {
+  REDDIT
+  WIKIPEDIA
+}
+
+type Image {
+  url: String
+  source: ImageProvider
+}

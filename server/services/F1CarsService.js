@@ -4,8 +4,6 @@ const {
   getWikiSummary
 } = require('../repositories/WikipediaRepository')
 
-const { queryRedditImage } = require('../repositories/RedditRepository')
-
 const carModelRegex = new RegExp(
   /(?<teamShortName>[\w\s-]+)\s(?<model>[\w-]+)$/
 )
@@ -17,6 +15,13 @@ const getCarsPerYear = year =>
   getWikiCategory(`${year}_Formula_One_season_cars`).then(res =>
     res.map(member => member.title)
   )
+
+const getCarImage = (originalimage = {}, query) => {
+  return {
+    url: originalimage.source,
+    query
+  }
+}
 
 const getCarInfo = async selectedCar => {
   const summary = await getWikiSummary(selectedCar)
@@ -32,17 +37,13 @@ const getCarInfo = async selectedCar => {
 
   const { teamShortName, model } = carModelRegex.exec(summary.title).groups
 
-  const image = summary.originalimage
-    ? summary.originalimage.source
-    : queryRedditImage({ query: selectedCar })
-
   const team = {
     fullName: constructor,
     shortName: teamShortName
   }
 
   return {
-    image,
+    image: getCarImage(summary.originalimage, selectedCar),
     model: model,
     description: summary.extract,
     engineManufacturer,
