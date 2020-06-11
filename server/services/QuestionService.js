@@ -31,12 +31,12 @@ const makeQuestion = async type => {
   )
 
   const expectedAnswer = await getQuestionAnswer()
-  const createdQuestion = createQuestion({ type, expectedAnswer })
+  const createdQuestion = createQuestion({ type, data: expectedAnswer })
 
   const formattedQuestion = {
     id: createdQuestion.id,
     type: createdQuestion.type,
-    image: createdQuestion.expectedAnswer.image
+    image: createdQuestion.data.image
   }
 
   PubSub.publish(QUESTION_RECEIVED, { [QUESTION_RECEIVED]: formattedQuestion })

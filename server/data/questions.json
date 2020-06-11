@@ -1,0 +1,75 @@
+[
+  {
+    "id": "HJ3MuzlpI",
+    "type": "CAR_MODEL",
+    "expectedAnswer": {
+      "year": 1990,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Benetton_B190_front-right_2010_Pavilion_Pit_Stop.jpg",
+      "model": "B190",
+      "description": "The Benetton B190 is a Formula One racing car designed by Rory Byrne in collaboration with Benetton's Technical Director, John Barnard, a designer with experience at racing companies McLaren and Ferrari and arguably the most successful Formula One designer of the 1980s with his cars winning 31 races since 1981. The B190 was raced by Benetton in the 1990 Formula One season.",
+      "engineManufacturer": "Cosworth#HB",
+      "debut": "1990 San Marino Grand Prix",
+      "team": {
+        "fullName": "Benetton Formula",
+        "shortName": "Benetton"
+      }
+    },
+    "answers": []
+  },
+  {
+    "id": "r12NdGxaI",
+    "type": "CAR_MODEL",
+    "expectedAnswer": {
+      "year": 1976,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Brabham_BT44_front.jpg",
+      "model": "BT44",
+      "description": "The Brabham BT44 was a Formula One racing car designed by Gordon Murray, Brabham's chief designer. An update of the partially successful BT42 of 1973, the BT44 was a simple design with a standard Ford DFV/Hewland gearbox combination, but was very clean aerodynamically. Murray had an eye for clean lines, and the BT44 was particularly graceful. He was also a forward thinker, and tinkered with side skirts and airdams on the car, a precursor to ground effects aerodynamics. Sponsorship came from Martini.",
+      "engineManufacturer": "Cosworth DFV",
+      "debut": "1974 Argentine Grand Prix",
+      "team": {
+        "fullName": "Brabham",
+        "shortName": "Brabham"
+      }
+    },
+    "answers": []
+  },
+  {
+    "id": "r1WwYzg6L",
+    "type": "CAR_MODEL",
+    "data": {
+      "year": 1965,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/92/Lotus_33_Climax_Jackie_Stewart_at_Goodwood_Revival_2013_001.jpg",
+      "model": "33",
+      "description": "The Lotus 33 was a Formula One car designed by Colin Chapman and Len Terry and built by Team Lotus. A development of the successful Lotus 25, in the hands of Jim Clark it won 5 World Championship Grands Prix in 1965, assisting Clark to his second World Championship.",
+      "engineManufacturer": "Coventry Climax",
+      "debut": "1964 Aintree 200",
+      "team": {
+        "fullName": "Team Lotus",
+        "shortName": "Lotus"
+      }
+    },
+    "answers": []
+  },
+  {
+    "id": "rkjtFGlaU",
+    "type": "CAR_MODEL",
+    "answers": []
+  },
+  {
+    "id": "SkZctzxpL",
+    "type": "CAR_MODEL",
+    "data": {
+      "year": 1996,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Ligier_JS43_front-left_Honda_Collection_Hall.jpg",
+      "model": "JS43",
+      "description": "The Ligier JS43 was the car with which the Ligier team competed in the 1996 Formula One World Championship. It was driven by Frenchman Olivier Panis, who was in his third season with the team, and Brazilian Pedro Diniz, who moved from Forti.",
+      "engineManufacturer": "Mugen-Honda",
+      "debut": "1996 Australian Grand Prix",
+      "team": {
+        "fullName": "Equipe Ligier",
+        "shortName": "Ligier"
+      }
+    },
+    "answers": []
+  }
+]

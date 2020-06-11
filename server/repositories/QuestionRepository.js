@@ -16,8 +16,8 @@ const createQuestion = params => {
   return getQuestion({ id: questionId })
 }
 
-const isAnswerCorrect = (answer, expectedAnswer) => {
-  const { team, model: expectedModel } = expectedAnswer
+const isAnswerCorrect = (answer, questionData) => {
+  const { team, model: expectedModel } = questionData
 
   const indexModel = answer.indexOf(expectedModel)
   const answerName = answer.slice(0, indexModel).trim()
@@ -36,7 +36,7 @@ const addQuestionAnswer = (questionId, params) => {
   const answer = {
     author: params.author,
     answer: params.answer,
-    isCorrect: isAnswerCorrect(params.answer, question.expectedAnswer)
+    isCorrect: isAnswerCorrect(params.answer, question.data)
   }
 
   question.answers.push(answer)
