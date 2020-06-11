@@ -1,4 +1,4 @@
-const FuzzySet = require('fuzzyset.js')
+const FuzzySet = require('fuzzyset')
 
 const db = require('../db')
 
