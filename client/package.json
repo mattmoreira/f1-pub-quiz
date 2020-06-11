@@ -1,5 +1,5 @@
 {
-  "name": "f1-pub-quiz",
+  "name": "f1-pub-quiz-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

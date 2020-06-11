@@ -1,7 +1,5 @@
 {
-  "name": "job-board-server",
-  "private": true,
-  "license": "MIT",
+  "name": "f1-pub-quiz-server",
   "scripts": {
     "start": "nodemon --ignore data/ index.js"
   },
