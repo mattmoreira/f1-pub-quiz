@@ -1,11 +1,9 @@
-directive @auth on FIELD_DEFINITION
+enum QuestionType {
+  CAR_MODEL
+}
 
 input MakeQuestionInput {
   type: QuestionType
-}
-
-input AuthenticateTeamInput {
-  name: String!
 }
 
 input AnswerQuestionInput {
@@ -14,7 +12,6 @@ input AnswerQuestionInput {
 }
 
 type Mutation {
-  authenticate(input: AuthenticateTeamInput): ID
   answerQuestion(input: AnswerQuestionInput): AnswerQuestionResponse @auth
   makeQuestion(input: MakeQuestionInput): Question
 }
@@ -25,10 +22,6 @@ type Query {
 
 type Subscription {
   questionReceived: Question
-}
-
-enum QuestionType {
-  CAR_MODEL
 }
 
 type Question {
@@ -48,21 +41,4 @@ type Answer {
 type AnswerQuestionResponse {
   originalQuestion: Question
   answer: Answer
-}
-
-type Team {
-  id: ID!
-  fullName: String
-  shortName: String
-}
-
-type Car {
-  id: ID!
-  image: String
-  model: String
-  team: Team
-  engineManufacturer: String
-  description: String
-  debut: String
-  year: Int
 }

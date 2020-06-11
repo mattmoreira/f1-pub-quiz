@@ -1,0 +1,13 @@
+input AuthenticateTeamInput {
+  name: String!
+}
+
+type Mutation {
+  authenticate(input: AuthenticateTeamInput): ID
+}
+
+type Team {
+  id: ID!
+  fullName: String
+  shortName: String
+}

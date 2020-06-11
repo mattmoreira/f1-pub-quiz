@@ -1,0 +1,10 @@
+type Car {
+  id: ID!
+  image: String
+  model: String
+  team: Team
+  engineManufacturer: String
+  description: String
+  debut: String
+  year: Int
+}

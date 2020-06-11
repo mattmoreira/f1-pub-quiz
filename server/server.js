@@ -2,13 +2,12 @@ const express = require('express')
 const http = require('http')
 
 const { ApolloServer, gql } = require('apollo-server-express')
-const { importSchema } = require('graphql-import')
 
 const middleware = require('./middleware')
-const resolvers = require('./resolvers')
-const schemaDirectives = require('./directives')
 
-const typeDefs = gql(importSchema('schemas/schema.graphql'))
+const schemaDirectives = require('./modules/directives')
+const resolvers = require('./modules/resolvers')
+const typeDefs = gql(require('./modules/typeDefs'))
 
 const app = express()
 
