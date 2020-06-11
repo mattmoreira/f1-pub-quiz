@@ -65,7 +65,7 @@ function QuizQuestionContainer() {
 
       <ResponsiveImage
         className={styles.image}
-        src={questionReceived.image}
+        src={questionReceived.image.url}
         alt="F1 car"
       />
 
