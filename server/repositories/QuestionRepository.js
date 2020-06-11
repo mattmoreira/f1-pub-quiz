@@ -2,7 +2,10 @@ const FuzzySet = require('fuzzyset')
 
 const db = require('../db')
 
-const getQuestions = () => db.questions.list()
+const getQuestions = () =>
+  db.questions
+    .list()
+    .map(({ data, ...question }) => ({ ...question, image: data.image }))
 
 const getQuestion = ({ id }) =>
   getQuestions().find(question => question.id === id)
