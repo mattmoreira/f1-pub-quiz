@@ -7,7 +7,7 @@ const middleware = require('./middleware')
 
 const schemaDirectives = require('./modules/directives')
 const resolvers = require('./modules/resolvers')
-const typeDefs = gql(require('./modules/typeDefs'))
+const typeDefs = require('./modules/typeDefs')
 
 const app = express()
 
@@ -18,15 +18,19 @@ const appContext = ({ req }) => {
 }
 
 const apolloServer = new ApolloServer({
-  typeDefs,
+  typeDefs: gql(typeDefs),
   resolvers,
   schemaDirectives,
   context: appContext,
-  formatError: ({ extensions: { exception } }) => ({
-    stacktrace: exception.stacktrace,
-    message: exception.name,
-    status: exception.status
-  })
+  formatError: err => {
+    console.error('ERROR', err.message)
+
+    return {
+      stacktrace: err.extensions.exception.stacktrace,
+      message: err.extensions.exception.name,
+      status: err.extensions.exception.status
+    }
+  }
 })
 
 app.use(middleware.bodyJson, middleware.cors, middleware.jwt)

@@ -54,7 +54,7 @@ const clientSub = new SubscriptionClient(GRAPHQL_WEBSOCKET_URL, {
   connectionParams: () => ({ sessionToken: getToken() })
 })
 
-const webSocketLink = new WebSocketLink(clientSub)
+const webSocketLink = ApolloLink.from([errorLink, new WebSocketLink(clientSub)])
 
 const isSubscriptionOperation = operationDefinition => {
   const { operation: operationType, kind } = getMainDefinition(
