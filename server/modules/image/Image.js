@@ -5,13 +5,13 @@ const { ImageUnavailableError } = require('../../errors/image')
 const { queryRedditImage } = require('../../repositories/RedditRepository')
 
 module.exports = {
-  url: async (root = {}) => {
+  url: (root = {}) => {
     try {
       assert.ok(root.url, ImageUnavailableError)
 
       return root.url
     } catch (e) {
-      return await queryRedditImage({ query: root.query })
+      return queryRedditImage({ query: root.query })
     }
   },
   source: (root = {}) => {

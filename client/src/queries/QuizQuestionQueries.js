@@ -5,7 +5,9 @@ export const SUBSCRIPTION_QUESTION_RECEIVED = gql`
     questionReceived {
       id
       type
-      image
+      image {
+        url
+      }
     }
   }
 `

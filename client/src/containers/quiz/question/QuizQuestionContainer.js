@@ -27,7 +27,11 @@ const useSubscriptionQuestion = () => {
 
   const titleByType = TITLE[questionReceived.type] || TITLE.WAITING
 
-  return { ...questionReceived, title: titleByType }
+  return {
+    ...questionReceived,
+    title: titleByType,
+    image: questionReceived.image && questionReceived.image.url
+  }
 }
 
 const isQuestionAnswered = ({ answerQuestion } = {}, questionReceived) => {
@@ -65,7 +69,7 @@ function QuizQuestionContainer() {
 
       <ResponsiveImage
         className={styles.image}
-        src={questionReceived.image.url}
+        src={questionReceived.image}
         alt="F1 car"
       />
 
